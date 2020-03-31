@@ -1,26 +1,29 @@
-const crypto = require("crypto");
-const connection = require('../database/connection');//importação da conexão com o banco
+const crypto = require('crypto');
+const connection = require('../database/connection');
 
 module.exports = {
-    async index (request, response) {
-        const ongs = await connecton('ongs').select('*');
-   
-        return response.json(ongs);
+    async index(request, response) {
+        const ongs = await connection('ongs').select('*');
+    
+        return response.json(ongs); 
     },
 
-    async create(request, response){
-        const {name, email,whatsapp, city, uf} = request.body;
+    async create(request, response) {
+        const { name, email, whatsapp, city, uf } = request.body;
 
-        const id = crypto.randomBytes(4).toString('HEX');
+        const id = crypto.randomBytes(4).toString('HEX');/*gera um codigo de 4 bytes hexadecimais
+                                                        *Que vai ser o id da ong
+                                                        */
 
         await connection('ongs').insert({
+            id,
             name,
             email,
             whatsapp,
             city,
             uf,
-    })
+        })
 
-    return response.json({ id });
+        return response.json({ id });
     }
-}
+};
