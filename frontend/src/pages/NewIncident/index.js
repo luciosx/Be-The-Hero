@@ -6,10 +6,9 @@ import { Link, useHistory } from 'react-router-dom';
 import {  FiArrowLeft } from 'react-icons/fi';
 
 import logoImg from '../../assets/logo.svg';
-import { useState } from 'react';
 import api from '../../services/api';
 
-export default function NewIncidente() {
+export default function NewIncident() {
     const [ title, setTitle] = useState('');
     const [ description, setDescription] = useState('');
     const [ value, setValue] = useState('');

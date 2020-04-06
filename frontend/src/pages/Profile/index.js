@@ -18,14 +18,14 @@ export default function Profile(){
     const ongId = localStorage.getItem('ongName'); 
 
     useEffect(() => {
-        app.get('profile',{
+        api.get('profile',{
             headers: {
                 Authorization: ongId,
             }
         }).then(response => {
             setIncidents(response.data);
         })
-    }, [ondId]);
+    }, [ongId]);
 
     async function handleDeleteIncident(id){
         try{

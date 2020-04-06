@@ -18,13 +18,13 @@ export default function Logon(){
         e.preventeDefault();
 
         try {
-            const response = await api.post('session', {id});
+            const response = await api.post('/session', { id });
 
             localStorage.setItem('ongId', id);
             localStorage.setItem('ongName', response.data.name);
 
-            history.push('/profile')
-        }catch(err){
+            history.push('/profile');
+        } catch(err) {
             alert('Falha no login tente novamente');
         }
     }
@@ -40,7 +40,7 @@ export default function Logon(){
                     <input
                         placeholder="Sua ID"
                         value={id}
-                        onChange={e.target.value}
+                        onChange={e => setId(e.target.value)}
                     />
                     <button className="button" type="submit">Entrar</button>
 
