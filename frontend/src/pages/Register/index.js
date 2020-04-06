@@ -8,7 +8,7 @@ import './styler.css';
 
 import logoImg from '../../assets/logo.svg';
 
-
+//integração com a api 
 export default function Register(){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -19,7 +19,7 @@ export default function Register(){
     const history = useHistory();
 
     async function handleRegister(e){
-        e.preventDefault();
+        e.preventDefault();//evita que a pagina recarregue sempre um formulario for enviado
 
         const data = {
             name,

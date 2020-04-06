@@ -33,7 +33,7 @@ export default function NewIncidente() {
                     Authorization: ongId,
                 }
             });
-            history.push('profile');
+            history.push('/profile');
         } catch (err) {
             alert('Erro ao cadastrar caso, tente novamente.');
         }
